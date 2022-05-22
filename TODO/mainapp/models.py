@@ -12,8 +12,6 @@ class Project(models.Model):
     link = models.CharField(verbose_name="ссылка на репозиторий", max_length=512, unique=True)
     description = models.TextField(verbose_name="описание проекта", blank=True)
     users = models.ManyToManyField(User)
-#    todos = models.ManyToManyField(TODO) по идеи в проекте должна быть ссылка на заметки, 
-#     но почему то не позволяет этого сделать
 
     def __str__(self):
         return self.description
