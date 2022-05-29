@@ -1,5 +1,5 @@
 from django_filters import rest_framework as filters
-from mainapp.models import Project, TODO, User
+from mainapp.models import Project, TODO
 
 
 class ProjectFilter(filters.FilterSet):

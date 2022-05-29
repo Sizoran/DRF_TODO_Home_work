@@ -23,7 +23,7 @@ class TODO(models.Model):
     updated = models.DateTimeField(verbose_name="дата обновления", auto_now=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    hiden = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.description

@@ -16,17 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from mainapp.views import ProjectModelViewSet, TODOModelViewSet, UserModelViewSet
+from mainapp.views import ProjectModelViewSet, TODOModelViewSet
+from mainapp import views
+
 
 
 router = DefaultRouter()
 router.register('Project', ProjectModelViewSet)
 router.register('TODO', TODOModelViewSet)
-router.register('User', UserModelViewSet)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(router.urls)),
+    path('views/api-view/', views.UserListAPIView.as_view()),
+    path('generic/retrieveupdate/<int:pk>/', views.UserRetrieveUpdateAPIView.as_view()),
+
 ]
