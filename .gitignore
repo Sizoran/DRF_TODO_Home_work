@@ -1,3 +1,10 @@
-TODO/db.sqlite3
-TODO/mainapp/__pycache__/models.cpython-38.pyc
+TODO/node_modules
 TODO/mainapp/__pycache__
+TODO/TODO/__pycache__
+TODO/mainapp/migrations/__pycache__
+TODO/package-lock.json
+TODO/package.json
+TODO/frontend/package-lock.json
+TODO/frontend/package.json
+TODO/frontend/README.md
+TODO/node_modules
