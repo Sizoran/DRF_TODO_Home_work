@@ -17,7 +17,6 @@ class Project(models.Model):
         return self.description
 
 class TODO(models.Model):
-    project = models.ManyToManyField(Project)
     description = models.TextField(verbose_name='описание заметки',blank=True)
     created = models.DateTimeField(verbose_name="дата создания", auto_now_add=True)
     updated = models.DateTimeField(verbose_name="дата обновления", auto_now=True)
