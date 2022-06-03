@@ -6,7 +6,7 @@ import TODOList from './components/TODO';
 import axios from 'axios'
 import Menu from './components/Menu.js'
 import Footer from './components/Footer.js'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 
 class App extends React.Component {
@@ -59,6 +59,19 @@ class App extends React.Component {
             <div className='App'>
                 <BrowserRouter>
                     <Menu />
+                    <nav>
+                        <ul>
+                            <li>
+                                <Link to='/'>Users</Link>
+                            </li>
+                            <li>
+                                <Link to='/projects'>Projects</Link>
+                            </li>
+                            <li>
+                                <Link to='/TODOs'>TODOs</Link>
+                            </li>
+                        </ul>
+                    </nav>
                         <Routes>
                             <Route path='/' element={<UserList users={this.state.users} />
                             } />
