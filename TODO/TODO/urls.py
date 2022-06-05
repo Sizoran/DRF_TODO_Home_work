@@ -16,8 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from mainapp.views import ProjectModelViewSet, TODOModelViewSet
+from mainapp.views import ProjectModelViewSet, TODOModelViewSet, UserListAPIView ,UserRetrieveUpdateAPIView
 from mainapp import views
+from rest_framework.authtoken import views
 
 
 
@@ -30,7 +31,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(router.urls)),
-    path('views/api-view/', views.UserListAPIView.as_view()),
-    path('generic/retrieveupdate/<int:pk>/', views.UserRetrieveUpdateAPIView.as_view()),
+    path('views/api-view/', UserListAPIView.as_view()),
+    path('generic/retrieveupdate/<int:pk>/', UserRetrieveUpdateAPIView.as_view()),
+    path('api-token-auth/', views.obtain_auth_token),
 
 ]
