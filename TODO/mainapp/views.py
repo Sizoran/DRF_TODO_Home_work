@@ -1,6 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.generics import ListAPIView, RetrieveUpdateAPIView
 from rest_framework.renderers import JSONRenderer
+from rest_framework import permissions
 from mainapp.models import Project, TODO, User
 from mainapp.serializers import ProjectModelSerializer, TODOModelSerializer, UserModelSerializer
 from mainapp.filters import ProjectFilter, TODOFilter
@@ -16,6 +17,7 @@ class TODOLimitOffsetPagination(LimitOffsetPagination):
     default_limit = 20
 
 class ProjectModelViewSet(ModelViewSet):
+    permission_classes = [permissions.IsAuthenticated]
     queryset = Project.objects.all()
     renderer_classes = [JSONRenderer]
     serializer_class = ProjectModelSerializer

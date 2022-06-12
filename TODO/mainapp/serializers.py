@@ -1,4 +1,4 @@
-from rest_framework.serializers import HyperlinkedModelSerializer,ModelSerializer
+from rest_framework.serializers import ModelSerializer
 from mainapp.models import Project, TODO, User
 
 class ProjectModelSerializer(ModelSerializer):
