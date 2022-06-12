@@ -56,7 +56,7 @@ class App extends React.Component {
 
     get_headers() {
         let headers = {
-            'Content-Tape': 'application/json'
+            'Content-Type': 'application/json'
         }
         if (this.is_authenticated()) {
             headers['Authorization'] = 'Token' + this.state.token
