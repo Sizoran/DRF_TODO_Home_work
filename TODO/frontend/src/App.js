@@ -69,17 +69,17 @@ class App extends React.Component {
         const headers = this.get_headers()
         axios.get('http://127.0.0.1:8000/views/api-view/', { headers })
             .then(response => {
-                this.setState({ users: response.data })
+                this.setState({ users: response.data.results })
             }).catch(error => console.log(error))
         
         client.get('Project/', { headers })
             .then(response => {
-                this.setState({ projects: response.data })
+                this.setState({ projects: response.data.results })
             }).catch(error => console.log(error))    
         
         client.get('TODO/', { headers })
             .then(response => {
-                this.setState({ TODOs: response.data })
+                this.setState({ TODOs: response.data.results })
             }).catch(error => console.log(error))    
     }
 

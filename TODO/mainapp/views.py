@@ -17,7 +17,6 @@ class TODOLimitOffsetPagination(LimitOffsetPagination):
     default_limit = 20
 
 class ProjectModelViewSet(ModelViewSet):
-    permission_classes = [permissions.IsAuthenticated]
     queryset = Project.objects.all()
     renderer_classes = [JSONRenderer]
     serializer_class = ProjectModelSerializer
