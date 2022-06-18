@@ -5,7 +5,9 @@ class User(models.Model):
     first_name = models.CharField(verbose_name="имя", max_length=64)
     last_name = models.CharField(verbose_name="фамилия",max_length=64)
     birthday_year = models.PositiveIntegerField()
-    email = models.CharField(verbose_name="почта",max_length=64, unique=True) 
+    email = models.CharField(verbose_name="почта",max_length=64, unique=True)
+    is_superuser = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
 
 class Project(models.Model):
     name = models.CharField(verbose_name="уникальное название проекта", max_length=128, unique=True)

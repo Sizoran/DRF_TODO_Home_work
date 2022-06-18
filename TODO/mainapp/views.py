@@ -3,7 +3,7 @@ from rest_framework.generics import ListAPIView, RetrieveUpdateAPIView
 from rest_framework.renderers import JSONRenderer
 from rest_framework import permissions
 from mainapp.models import Project, TODO, User
-from mainapp.serializers import ProjectModelSerializer, TODOModelSerializer, UserModelSerializer
+from mainapp.serializers import ProjectModelSerializer, TODOModelSerializer, UserModelSerializer, UserModelSerializerNew
 from mainapp.filters import ProjectFilter, TODOFilter
 from rest_framework.pagination import LimitOffsetPagination
 from django.shortcuts import get_object_or_404
@@ -43,8 +43,19 @@ class UserListAPIView(ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserModelSerializer
 
+    def get_serializer_class(self):
+        if self.request.version == '2.0':
+            return UserModelSerializerNew
+        return UserModelSerializer
+
+
 class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
     renderer_classes = [JSONRenderer]
     queryset = User.objects.all()
     serializer_class = UserModelSerializer
+
+    def get_serializer_class(self):
+        if self.request.version == '2.0':
+            return UserModelSerializerNew
+        return UserModelSerializer
     
