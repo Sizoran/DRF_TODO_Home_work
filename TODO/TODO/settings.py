@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "django_filters",
     'drf_yasg',
+    'graphene_django',
 ]
 
 REST_FRAMEWORK = {
@@ -148,3 +149,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+
+GRAPHENE = {
+"SCHEMA": "TODO.schema.schema"
+}
